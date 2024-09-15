@@ -12,6 +12,7 @@ import { NavbarComponent } from "../navbar/navbar/navbar.component";
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
+  dell:string='assets/Dell.png';
   products: Product[] = [];
   constructor(private productservice: ProductService) { }
   ngonInit():void{
