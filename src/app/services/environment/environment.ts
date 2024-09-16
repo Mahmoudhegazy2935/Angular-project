@@ -1,3 +1,3 @@
-export enum Environment {
-    
-}
+export const Environment = {
+  baseapi : 'https://fakestoreapi.com/',
+};
