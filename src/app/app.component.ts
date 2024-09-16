@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { AllProductsComponent } from './components/products/all-products/all-products.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { SpinerComponent } from './components/spiner/spiner.component';
+import { SelectComponent } from './shared/components/select/select.component';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ import { SpinerComponent } from './components/spiner/spiner.component';
     RouterModule,
     ProductsDetailsComponent,
     AllProductsComponent,
+    SelectComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
