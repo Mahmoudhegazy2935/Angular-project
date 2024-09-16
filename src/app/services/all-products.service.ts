@@ -1,12 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from '../product/product';
+import { Environment } from './environment/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AllProductsService {
-  getAllproducts() {
-    throw new Error('Method not implemented.');
+  constructor(private http: HttpClient) {}
+  getallProducts() {
+    return this.http.get(Environment.baseapi + 'products');
   }
-
-  constructor() { }
+  getallcategories() {
+    return this.http.get(Environment.baseapi + 'products/categories');
+  }
+  getProductByCategory(keyword: string) {
+    return this.http.get(Environment.baseapi + 'products/category/' + keyword);
+  }
 }
