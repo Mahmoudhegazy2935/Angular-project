@@ -11,11 +11,11 @@ import { RouterModule } from '@angular/router';
 })
 export class ProductComponent {
   @Input() data:any={}
-  @Output() product=new EventEmitter()
+  @Output() item=new EventEmitter()
   addButton:boolean= false;
-  amount:number=0;
+  amount:number=0
   add(){
-      this.product.emit({products:this.data , quantity:this.amount})
+      this.item.emit({item:this.data ,quantity:this.amount})
   }
 
 }
