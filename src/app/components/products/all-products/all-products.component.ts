@@ -11,7 +11,9 @@ import { RouterModule } from '@angular/router';
   selector: 'app-all-products',
   standalone: true,
 
+
   imports: [SpinerComponent,SelectComponent ,ProductComponent,FormsModule,RouterModule],
+
 
 
   templateUrl: './all-products.component.html',

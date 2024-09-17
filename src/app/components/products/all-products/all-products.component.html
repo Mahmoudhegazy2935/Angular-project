@@ -8,6 +8,7 @@
     <div class="row"   >
 
 
+
         @for ( product of products ; track product.id)
         {
           <div class="col-md-3 col-sm 12 "  >
@@ -17,6 +18,7 @@
         }
     </div>
     }
+
     @if (loading) {
     <div class="w-100 text-center">
         <app-spiner></app-spiner>
