@@ -10,7 +10,10 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-all-products',
   standalone: true,
-  imports: [RouterModule,SpinerComponent,SelectComponent ,ProductComponent,FormsModule],
+
+  imports: [SpinerComponent,SelectComponent ,ProductComponent,FormsModule,RouterModule],
+
+
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.css',
 })

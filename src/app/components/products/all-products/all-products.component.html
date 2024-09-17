@@ -3,20 +3,25 @@
   <app-select [data]="categories" [title]="'categories'" (selectedValue)="filtercategories($event)"></app-select>
 </div>
 <div class="container"  >
-    @if (!loading) {
+    @if (!loading)
+    {
     <div class="row"   >
 
-        @for ( product of products ; track product.id) {
-        <div class="col-md-3 col-sm 12 " routerLink="/details/{{product.id}}" >
-        <!-- <a  routerLink="/details/{{ product.id }}"></a> -->
-           <app-product [data]="product" (product)="addToCart($event)"></app-product>
+
+        @for ( product of products ; track product.id)
+        {
+          <div class="col-md-3 col-sm 12 "  >
+
+            <app-product [data]="product" (product)="addToCart($event)"></app-product>
             </div>
-         }
+        }
     </div>
     }
-  </div>
-  @if (loading) {
-  <div class="w-100 text-center">
-      <app-spiner></app-spiner>
-  </div>
-  }
+    @if (loading) {
+    <div class="w-100 text-center">
+        <app-spiner></app-spiner>
+    </div>
+    }
+</div>
+
+

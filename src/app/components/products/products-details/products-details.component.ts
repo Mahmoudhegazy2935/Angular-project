@@ -22,14 +22,13 @@ export class ProductsDetailsComponent implements OnInit {
   }
   getproduct(){
   this.loading=true;
-this.service.getProductsById(this.id).subscribe(res=>{
-  this.loading=false 
+  this.service.getProductsById(this.id).subscribe(res=>{
+  this.loading=false
   this.data=res
-}
-// ,error=>{
-//     this.loading=false
-//     alert("error")
-//   }
+},error=>{
+    this.loading=false
+    alert("error")
+  }
 )
   }
 }
