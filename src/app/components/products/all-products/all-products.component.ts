@@ -10,7 +10,12 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-all-products',
   standalone: true,
+
+
   imports: [SpinerComponent,SelectComponent ,ProductComponent,FormsModule,RouterModule],
+
+
+
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.css',
 })
@@ -19,9 +24,9 @@ export class AllProductsComponent {
   products: any = [];
   categories: any = [];
   loading: boolean = false;
-  cartproducts:any[]=[];
-data: any;
-item: any;
+  cartProducts:any[]=[];
+  data: any;
+  item: any;
   constructor(private productservice: AllProductsService) {}
 
   ngOnInit() {
@@ -69,26 +74,25 @@ item: any;
       this.loading = false;
     });
   }
-  addToCart(event: any) {
-    
-    if (localStorage.getItem("cart")) {
-      this.cartproducts = JSON.parse(localStorage.getItem("cart")!);
-      
-      
-      let exist = this.cartproducts.find(products => products.products.id == event.products.id);
-      
-      if (exist) {
-        alert("Product is already in your cart");
-      } else {
-       
-        this.cartproducts.push(event);
-        localStorage.setItem("cart", JSON.stringify(this.cartproducts));
+  addToCart(event:any) {
+    if("cart" in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
+      let exist = this.cartProducts.find(item => item.item.id == event.item.id)
+      if(exist) {
+        alert("Product is already in your cart")
+      }else {
+        this.cartProducts.push(event)
+        localStorage.setItem("cart" , JSON.stringify(this.cartProducts))
       }
     } else {
-      
-      this.cartproducts = [event];
-      localStorage.setItem("cart", JSON.stringify(this.cartproducts));
+      this.cartProducts.push(event)
+      localStorage.setItem("cart" , JSON.stringify(this.cartProducts))
     }
   }
-  
-}
+
+
+
+
+  }
+
+
