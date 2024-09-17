@@ -5,11 +5,12 @@ import { SpinerComponent } from "../../spiner/spiner.component";
 import { SelectComponent } from '../../../shared/components/select/select.component';
 import { ProductComponent } from '../../../products/components/product/product.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-all-products',
   standalone: true,
-  imports: [SpinerComponent,SelectComponent ,ProductComponent,FormsModule],
+  imports: [SpinerComponent,SelectComponent ,ProductComponent,FormsModule,RouterModule],
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.css',
 })

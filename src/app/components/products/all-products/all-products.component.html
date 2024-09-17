@@ -5,15 +5,15 @@
 <div class="container"  >
     @if (!loading) {
     <div class="row"   >
-      
+
         @for ( product of products ; track product.id) {
-        <div class="col-md-3 col-sm 12 " routerLink="/details/{ product.id }}" >
+        <div class="col-md-3 col-sm 12 "    [routerLink]="['/details/',product.id]">
         <!-- <a  routerLink="/details/{{ product.id }}"></a> -->
            <app-product [data]="product" (product)="addToCart($event)"></app-product>
             </div>
          }
  </div>
-    }
+     }
     @if (loading) {
     <div class="w-100 text-center">
         <app-spiner></app-spiner>
