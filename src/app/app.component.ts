@@ -5,11 +5,13 @@ import { AllProductsComponent } from './components/products/all-products/all-pro
 import { ProductsDetailsComponent } from './components/products/products-details/products-details.component';
 import { CartComponent } from "./components/carts/cart/cart.component";
 import { HttpClient } from '@angular/common/http';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ProductComponent } from './components/products/product/product.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterModule, NavBarComponent, AllProductsComponent, ProductsDetailsComponent, CartComponent],
+  imports: [RouterOutlet,RouterModule,ProductComponent, SpinnerComponent,NavBarComponent, AllProductsComponent, ProductsDetailsComponent, CartComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
