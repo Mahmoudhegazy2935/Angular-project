@@ -16,22 +16,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><img src="" alt=""></td>
-        <td>Test title</td>
-        <td>150 L.E</td>
-        <td>
-          <div class="Quantity">
-            <button class="btn btn-dark">+</button>
-            <input type="number" class="form-control" min="1">
-            <button class="btn btn-dark">-</button>
-          </div>
-        </td>
-        <td>200 L.E</td>
-        <td>
-          <button class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
+      @for( item of cartProducts ;track cartProducts){
+        <tr>
+          <td><img [src]="" alt=""></td>
+          <td>{{item.item.title}}</td>
+          <td>{{item.item.price}} L.E</td>
+          <td>
+            <div class="Quantity">
+              <button class="btn btn-dark">+</button>
+              <input type="number" class="form-control" [(ngModel)]="item.quantity" min="1">
+              <button class="btn btn-dark">-</button>
+            </div>
+          </td>
+          <td>{{item.item.price * item.quantity}} L.E</td>
+          <td>
+            <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      }
     </tbody>
     <tfoot>
       <tr>

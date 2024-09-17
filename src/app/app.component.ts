@@ -21,7 +21,6 @@ import { SelectComponent } from './shared/components/select/select.component';
     ProductsDetailsComponent,
     CartComponent,
     CommonModule,
-    RouterModule,
     ProductsDetailsComponent,
     AllProductsComponent,
     SelectComponent,
