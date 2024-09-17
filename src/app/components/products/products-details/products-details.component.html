@@ -1,8 +1,8 @@
     <div class="box">
-    <div class="row"> 
+    <div class="row">
         @if (!loading){
         <div class="col-md-5 col-sm-12">
-        <img src="{{data.image}}" alt="sas">
+        <img src="{{data.image}}" alt="sas" class="w-75">
         </div>
         <div class="col-md-7 col-sm-12">
         <div class="info">
@@ -12,10 +12,12 @@
         <li><strong>Description: </strong>{{data.description}}</li>
         <li><strong>Rate: </strong>{{data.rating.rate}}</li>
         <li><strong>Count:</strong>{{data.rating.count}}</li>
-        <li><strong>Price:</strong>{{data.Price}}</li>
+        <li><strong>Price:</strong>{{data.price}}</li>
         </ul>
-        </div></div>}
+        </div>
+      </div>}
         <div class="text-center"></div>
-        <app-spiner >
-            @if (!loading){} </app-spiner>
+        @if (loading){
+          <app-spiner></app-spiner>
+        }
         </div>
