@@ -14,10 +14,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './all-products.component.css',
 })
 export class AllProductsComponent {
+[x: string]: any;
   products: any = [];
   categories: any = [];
   loading: boolean = false;
   cartproducts:any[]=[];
+data: any;
+item: any;
   constructor(private productservice: AllProductsService) {}
 
   ngOnInit() {
