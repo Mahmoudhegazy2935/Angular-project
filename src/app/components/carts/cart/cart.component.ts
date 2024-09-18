@@ -60,6 +60,7 @@ export class CartComponent {
   }
 
 
+
   getCartTotal(){
     this.total=0
     for(let x in this.cartProducts){

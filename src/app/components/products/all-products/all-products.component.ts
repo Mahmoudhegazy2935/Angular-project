@@ -21,8 +21,8 @@ import { RouterModule } from '@angular/router';
 })
 export class AllProductsComponent {
 [x: string]: any;
-  products: any = [];
-  categories: any = [];
+  products: Product[] = [];
+  categories: string[] = [];
   loading: boolean = false;
   cartProducts:any[]=[];
   data: any;
