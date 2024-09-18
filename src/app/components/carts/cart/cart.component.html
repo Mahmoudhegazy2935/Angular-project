@@ -1,54 +1,97 @@
 <div class="cartBox">
-  <h1 class="text-danger"> Shopping Cart</h1>
-  <div class="headCart">
-    <p class="lead">You Have <label for="" class="text-danger">{{cartProducts.length}}</label> item in your cart</p>
-    <span class="text-danger card-header" (click)="clearCart()">Clear Shopping Cart</span>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="">Start Date</label>
+        <input type="date" class="form-control" formControlName="start">
+      </div>
+      <div class="col-md-3">
+        <label for="">End Date</label>
+        <input type="date" class="form-control" formControlName="end">
+      </div>
+      <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-success" (click)="applyfilter()">Apply</button>
+      </div>
+    </div>
+  </form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="viewCart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centerd" style="max-width: 900px!important;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Price</th>
+              <th style="width: 25%;">Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(item of products; track $index) {
+              <tr>
+                <td><img src="{{item.item.image}}" alt="{{item.item.title}}" style="width: 50px; height: auto;"></td>
+                <td>{{item.item.title}}</td>
+                <td>{{item.item.price}} L.E</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.item.price * item.quantity}} L.E</td>
+              </tr>
+            }
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="4" style="text-align: right;">Total:</th>
+              <th>{{total | currency}}</th>
+            </tr>
+          </tfoot>
+        </table>
+        
+      </div>
+
+    </div>
   </div>
-  <table class="table table-striped">
+</div>
+
+
+
+
+  
+
+    <table class="table table-striped">
     <thead>
       <tr>
         <th></th>
-        <th>Name</th>
-        <th>Price</th>
-        <th class="w-2">Quantity</th>
-        <th>Total</th>
+        <th>Date</th>
+        <th>Quantity</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      @for( item of cartProducts ;track $index){
+      @for( item of carts ;track $index){
         <tr>
-          <td><img src="{{item.item.image}}" alt=""></td>
-          <td>{{item.item.title}}</td>
-          <td>{{item.item.price}} L.E</td>
+          <td></td>
+          <td>{{item.date | date:"shortDate"}} </td>
           <td>
-            <div class="Quantity">
-              <button class="btn btn-dark" (click)="addAmount($index)">+</button>
-              <input type="number" class="form-control" (change)="detectChange()" [(ngModel)]="item.quantity" min="1">
-              <button class="btn btn-dark" (click)="minsAmount($index)">-</button>
-            </div>
+            {{item.products.length}}
           </td>
-          <td>{{item.item.price * item.quantity}} L.E</td>
           <td>
-            <button class="btn btn-danger" (click)="deleteProduct($index)">Delete</button>
+            <button class="btn btn-danger m-3" (click)="deleteCart(item.id)">Delete</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#viewCart" (click)="View($index)">View</button>
           </td>
         </tr>
       }
     </tbody>
-    <tfoot>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>Total : {{total}} LE</th>
-        <th>
-          <button class="btn btn-success" (click)="addCatr()">Order Now</button>
-        </th>
-      </tr>
-    </tfoot>
   </table>
 </div>
-@if(success){
-<div class="alert alert-success" role="alert" ><strong>Well Done!</strong>Your Order Is Successfully Send</div>
-}
+

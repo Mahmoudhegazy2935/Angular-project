@@ -8,6 +8,7 @@ import { AllProductsComponent } from './components/products/all-products/all-pro
 import { BrowserModule } from '@angular/platform-browser';
 import { SpinerComponent } from './components/spiner/spiner.component';
 import { SelectComponent } from './shared/components/select/select.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { SelectComponent } from './shared/components/select/select.component';
     ProductsDetailsComponent,
     AllProductsComponent,
     SelectComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
