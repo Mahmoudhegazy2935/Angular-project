@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AllProductsService } from '../../../services/all-products.service';
 import { Product } from '../../../product/product';
 import { SpinerComponent } from "../../spiner/spiner.component";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-all-products',
@@ -33,7 +34,7 @@ export class AllProductsComponent {
       }
     );
   }
-  getCategory() {
+  getCategory(){
     this.loading = true;
     this.productservice.getallcategories().subscribe(
       (data: any) => {
