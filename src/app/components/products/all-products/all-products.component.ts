@@ -16,7 +16,7 @@ import { ProductsDetailsComponent } from '../products-details/products-details.c
 export class AllProductsComponent implements OnInit {
   products:Product[]= [];
 
-  categories:any[]= [];
+  categories:string[]= [];
   imgCategories:string[]= ["./download.jpeg","./download (1).jpeg","./download (2).jpeg","./download (3).jpeg"];
   loading:boolean = false;
   cartProduct:any[]=[];

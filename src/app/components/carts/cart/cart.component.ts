@@ -69,6 +69,11 @@ export class CartComponent {
   }
 
 
+
+
+
+
+// if there backend to recive data
   addCart(){
     let products=this.cartProducts.map(item=>{
      return {productId:item.item.id,quantity:item.quantity}
