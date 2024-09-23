@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    @for(category of categories;track category.id)
+    {
+      <div class="col-md-4">
+        <div class="card">
+          <img [src]="category.image" class="card-img-top" alt="{{category.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{category.name}}</h5>
+            <a [routerLink]="['/category',category.id]" class="btn btn-primary">View Details</a>
+            <!-- <a routerLink="/category/1" class="btn btn-primary">View Details</a> -->
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
