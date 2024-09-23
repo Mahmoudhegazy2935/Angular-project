@@ -1,11 +1,19 @@
 <nav>
-    <div class="container">
-      <div class="content">
-        <h2 class="logo">Market</h2>
-        <ul>
-          <li [routerLink]="['/products']">Products</li>
-          <li [routerLink]="['/cart']">Cart</li>
-        </ul>
-      </div>
+  <div class="address">
+    <h1 class="text-bold"><a [routerLink]="['/products']">Dealora</a></h1>
+  </div>
+  <div id="allelements">
+    
+    <div class="elements">
+      <ul>
+        <li class="mx-3"><a [routerLink]="['/products']">Home</a></li>
+        <li class="mx-3"><a [routerLink]="['/cart']">Cart</a></li>
+        <li class="mx-3"><a [routerLink]="['/aboutus']">About Us</a></li>
+        <li class="mx-3"><a [routerLink]="['/contactus']">contact Us</a></li>
+      </ul>
     </div>
-  </nav>
+    <div class="menu">
+      <img src="../../../../assets/burger-bar.png" width="35px" alt="">
+    </div>
+  </div>
+</nav>

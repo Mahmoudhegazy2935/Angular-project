@@ -8,6 +8,9 @@ import { AllProductsComponent } from './components/products/all-products/all-pro
 import { BrowserModule } from '@angular/platform-browser';
 import { SpinerComponent } from './components/spiner/spiner.component';
 import { SelectComponent } from './shared/components/select/select.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactusComponent } from './components/contactus/contactus.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +27,9 @@ import { SelectComponent } from './shared/components/select/select.component';
     ProductsDetailsComponent,
     AllProductsComponent,
     SelectComponent,
+    FooterComponent,
+    ContactusComponent,
+    AboutusComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

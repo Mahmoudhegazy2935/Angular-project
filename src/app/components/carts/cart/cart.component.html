@@ -1,4 +1,4 @@
-<div class="cartBox">
+<!-- <div class="cartBox">
   <h1 class="text-danger"> Shopping Cart</h1>
   <div class="headCart">
     <p class="lead">You Have <label for="" class="text-danger">{{cartProducts.length}}</label> item in your cart</p>
@@ -17,22 +17,22 @@
     </thead>
     <tbody>
       @for( item of cartProducts ;track $index){
-        <tr>
-          <td><img src="{{item.item.image}}" alt=""></td>
-          <td>{{item.item.title}}</td>
-          <td>{{item.item.price}} L.E</td>
-          <td>
-            <div class="Quantity">
-              <button class="btn btn-dark" (click)="addAmount($index)">+</button>
-              <input type="number" class="form-control" (change)="detectChange()" [(ngModel)]="item.quantity" min="1">
-              <button class="btn btn-dark" (click)="minsAmount($index)">-</button>
-            </div>
-          </td>
-          <td>{{item.item.price * item.quantity}} L.E</td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteProduct($index)">Delete</button>
-          </td>
-        </tr>
+      <tr>
+        <td><img src="{{item.item.image}}" alt=""></td>
+        <td>{{item.item.title}}</td>
+        <td>{{item.item.price}} L.E</td>
+        <td>
+          <div class="Quantity">
+            <button class="btn btn-dark" (click)="addAmount($index)">+</button>
+            <input type="number" class="form-control" (change)="detectChange()" [(ngModel)]="item.quantity" min="1" title="Quantity" placeholder="Enter quantity">
+            <button class="btn btn-dark" (click)="minsAmount($index)">-</button>
+          </div>
+        </td>
+        <td>{{item.item.price * item.quantity}} L.E</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteProduct($index)">Delete</button>
+        </td>
+      </tr>
       }
     </tbody>
     <tfoot>
@@ -48,7 +48,63 @@
       </tr>
     </tfoot>
   </table>
+</div> -->
+<div>
+  <div id="conttext" class="mx-3">
+    <h1>Shopping Cart</h1>
+    <div class="headCart">
+      <p class="lead">You Have <label for="" class="text-danger fw-bold">{{cartProducts.length}}</label> item in your
+        cart</p>
+      <span class="btn btn-danger text-capitalize" (click)="clearCart()">
+        clear all
+        <img src="../../../../assets/broom.png" width="30px" alt=""></span>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="d-flex mx-4 justify-content-center flex-column ">
+    @for (item of cartProducts; track $index) {
+    <div class="d-flex align-items-center " id="contall">
+      <div id="imgproduct" class="headers">
+        <div></div>
+        <img src="{{item.item.image}}" width="100px" alt="">
+      </div>
+      <div class="headers">
+        <p class="fw-bold" >Name</p>
+        <h5>{{item.item.title}}</h5>
+      </div>
+      <div class="headers">
+        <p  class="fw-bold" >Price</p>
+        <p>{{item.item.price}} L.E</p>
+      </div>
+      <div class="headerss d-flex flex-column ">
+        <p class="fw-bold" >Quantity</p>
+        <div class="d-flex ">
+          <div class="btn " (click)="addAmount($index)"><img src="../../../../assets/plus.png" width="15px" alt="">
+          </div>
+          <input type="number" class="form-control" [(ngModel)]="item.quantity" min="1" title="Quantity"
+            placeholder="Enter quantity">
+          <div class="btn " (click)="minsAmount($index)"><img src="../../../../assets/minus.png" width="15px" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="headers">
+        <p class="fw-bold" >Total</p>
+        <p>{{item.item.price * item.quantity }} L.E</p>
+      </div>
+      <div>
+        <div class="btn" (click)="deleteProduct($index)">
+          <img src="../../../../assets/delete.png" width="25px" alt="">
+        </div>
+      </div>
+    </div>
+    }
+    <div class="total text-center">
+      <p><strong>Total :</strong> {{total}} L.E</p>
+      <div class="btn btn-success fs-5 fw-bold w-100" (click)="addCatr()">Order Now</div>
+    </div>
+  </div>
 </div>
 @if(success){
-<div class="alert alert-success" role="alert" ><strong>Well Done!</strong>Your Order Is Successfully Send</div>
+<div class="alert alert-success" role="alert"><strong>Well Done!</strong>Your Order Is Successfully Send</div>
 }

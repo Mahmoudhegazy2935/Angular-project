@@ -1,0 +1,47 @@
+.allbtndiv {
+    background-color: white;
+    width: 200px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px rgb(206, 206, 206);
+    border-radius: 1000px;
+    margin: 10px;
+}
+
+.categorybtndiv {
+    margin: 10px;
+    background-color: white;
+    width: 200px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 5px rgb(206, 206, 206);
+    border-radius: 60px;
+}
+
+.categorybtndiv:hover,
+.allbtndiv:hover {
+    transform: scale(1.1);
+}
+
+button {
+    border-radius: 60px;
+    width: 90%;
+    height: 90%;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+@media(max-width:768px){
+    .catbtndiv{
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+    }
+}
