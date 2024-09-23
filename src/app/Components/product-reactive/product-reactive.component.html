@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>{{editMode? 'Edit product':'Add New product'}}</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Name</label>
+      <input type="text" id="title" formControlName="title" class="form-control" >
+      @if(productForm.get('title')?.invalid && productForm.get('title')?.touched)
+      {
+        <span class="text-danger">product title is Required</span>
+      }
+    </div>
+
+
+    <div class="mb-3">
+      <label for="price" class="form-label">price</label>
+      <input type="number" id="price" formControlName="price" class="form-control" >
+      @if(productForm.get('price')?.invalid && productForm.get('price')?.touched)
+      {
+        <span class="text-danger">product price is Required</span>
+      }
+    </div>
+
+
+    <div class="mb-3">
+      <label for="description" class="form-label">description</label>
+      <input type="text" id="description" formControlName="description" class="form-control" >
+      @if(productForm.get('description')?.invalid && productForm.get('description')?.touched)
+      {
+        <span class="text-danger">product description is Required</span>
+      }
+    </div>
+
+
+    <div class="mb-3">
+      <label for="categoryId" class="form-label">categoryId</label>
+      <input type="number" id="categoryId" formControlName="categoryId" class="form-control" >
+      @if(productForm.get('categoryId')?.invalid && productForm.get('categoryId')?.touched)
+      {
+        <span class="text-danger">product categoryId is Required</span>
+      }
+    </div>
+
+
+    <div class="mb-3">
+      <label for="images" class="form-label">Image</label>
+      <input type="text" id="images" formControlName="images" class="form-control" >
+      @if(productForm.get('image')?.errors?.['required'])
+      {
+        <span class="text-danger">Image URL is Required</span>
+      }
+      @if(productForm.get('image')?.errors?.['pattern'])
+      {
+        <span class="text-danger">Enter Valid Image URL</span>
+      }
+
+    </div>
+
+    <button [disabled]="productForm.invalid"
+    type="submit" class="btn btn-primary">{{editMode? 'Update product':'Create product'}}</button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>{{editMode ? 'Edit product':'Add New product'}}</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" id="name" name="name" class="form-control"
+      [(ngModel)]="product.title" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL</label>
+      <input type="file" id="image" name="image" class="form-control"
+      [(ngModel)]="product.images" required>
+    </div>
+    <button type="submit" class="btn btn-primary">{{editMode ? 'Update Category':'Create Category'}}</button>
+  </form>
+</div>

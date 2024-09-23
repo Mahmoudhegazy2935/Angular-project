@@ -22,4 +22,12 @@ export class CategoryComponent {
 
     });
   }
+  deleteCategory(id:number):void{
+    if(confirm('Are you sure you want to delete this category?'))
+    {
+      this.categoryService.deleteCategory(id).subscribe(   ()=>{
+        this.categories = this.categories.filter(category=> category.id !==id);
+      });
+    }
+  }
 }

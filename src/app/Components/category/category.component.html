@@ -1,4 +1,5 @@
 <div class="container">
+  <a [routerLink]="['/new-category']" class="mb-4 btn btn-success mb-3">Add New Category</a>
   <div class="row">
     @for(category of categories;track category.id)
     {
@@ -8,7 +9,8 @@
           <div class="card-body">
             <h5 class="card-title">{{category.name}}</h5>
             <a [routerLink]="['/category',category.id]" class="btn btn-primary">View Details</a>
-            <!-- <a routerLink="/category/1" class="btn btn-primary">View Details</a> -->
+            <a [routerLink]="['/edit-category',category.id]" class="btn btn-warning">Edit</a>
+            <button class="btn btn-danger" (click)="deleteCategory(category.id)">Delete</button>
           </div>
         </div>
       </div>

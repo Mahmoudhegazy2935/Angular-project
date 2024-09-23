@@ -1,15 +1,18 @@
+<app-category></app-category>
 <div class="container">
+  <a [routerLink]="['/new-product']" class="mb-4 btn btn-success mb-3">Add New product</a>
   <div class="row">
     @for(product of products;track product.id)
     {
       <div class="col-md-4">
         <div class="card">
-          <!-- <img [src]="product.images[0]" class="card-img-top" alt="{{product.title}}"> -->
-          <img src="{{product.images}}" class="card-img-top" alt="{{product.title}}">
+          <img [src]="product.images[0]" class="card-img-top" alt="{{product.title}}">
+          <!-- <img src="https://picsum.photos/200/200" class="card-img-top" alt="{{product.title}}"> -->
           <div class="card-body">
             <h5 class="card-title">{{product.title}}</h5>
             <p class="card-text">{{product.price | currency}}</p>
             <a [routerLink]="['/product',product.id]" class="btn btn-primary">View Details</a>
+            <a [routerLink]="['/edit-product',product.id]" class="btn btn-warning">Edit</a>
             <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
           </div>
         </div>
